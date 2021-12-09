@@ -30,7 +30,7 @@ const Checkout = (props) => {
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredSteetIsValid = !isEmpty(enteredStreet);
-    const enteredPostalIsValid = !isNotFiveChars(enteredPostal);
+    const enteredPostalIsValid = isNotFiveChars(enteredPostal);
     const enteredCityIsValid = !isEmpty(enteredCity);
 
     setFormInputsValidity({
@@ -45,8 +45,14 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
-
-    //Submit Card Data
+    props.onCheckout(
+      {
+        name: enteredName,
+        street: enteredStreet,
+        postal: enteredPostal,
+        city: enteredCity
+      }
+    );
   };
 
   return (

@@ -45,7 +45,7 @@ const AvailableMeals = () => {
   }
 
   if (isError) {
-    return <p className={classes.error}>Could not fetch meals...</p>
+    return <p className={classes.error}>{isError}</p>
   }
 
   const mealsList = meals.map(meal =>
